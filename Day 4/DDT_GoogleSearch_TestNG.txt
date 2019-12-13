@@ -1,0 +1,62 @@
+package com.qa.selenium;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+
+public class DDT_Google_TestNG {
+	static WebDriver driver; 
+	
+	
+	
+	@Test(dataProvider="getData")
+	
+	public void search1(String Searchterm) throws InterruptedException
+	{
+		System.setProperty("webdriver.chrome.driver", "C:\\\\Users\\\\jyothilp\\\\Desktop\\\\Selenium Training Softwares\\\\Drivers\\\\Chrome78\\\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		driver.get("http://google.com");
+		driver.findElement(By.name("q")).clear();
+		driver.findElement(By.name("q")).sendKeys(Searchterm);
+		Thread.sleep(3000);
+		driver.findElement(By.id("gbqfb")).click();
+		driver.close();
+		
+	}
+	
+	
+	@DataProvider
+	
+	public Object[][] getData()
+	
+			{
+				Object[][] data = new Object[3][1];
+				
+				//1st data
+				
+				data[0][0] = "Bangalore";
+				
+				//2nd Data
+				
+				data[1][0] = "India";
+				
+				//3rd Data
+				data[2][0] = "Chennai";
+		
+		
+				return data;
+			
+			}
+	
+	
+	
+	
+}
+

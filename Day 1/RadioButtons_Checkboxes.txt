@@ -1,0 +1,36 @@
+package LocateElements;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class RadioButtons_Checkboxes {
+
+	  public static void main(String[] args) throws InterruptedException
+	  {
+	    // All actions will be applied to Firefox.
+	    WebDriver oWebDriver = new FirefoxDriver();
+	 
+	    // Open the webpage.
+	    oWebDriver.get("http://destinationqa.com/aut/RadioButtons.html");
+	 
+	    // Radio Button: Check Monday using XPATH locator.
+	    WebElement oRadioBtn = oWebDriver.findElement(By.xpath("//input[@value='Mon']"));
+	    oRadioBtn.click();
+	 
+	    // Checkbox: Uncheck Red using CSS selector.
+	   // WebElement oCheckBoxRed = oWebDriver.findElement(By.cssSelector("input[name='red']"));
+	    WebElement oCheckBoxRed = oWebDriver.findElement(By.name("red")); 
+	    oCheckBoxRed.click();
+	 
+	    // Checkbox: Check Orange using CSS selector.
+	    WebElement oCheckBoxOrange = oWebDriver.findElement(By.cssSelector("input[name='orange']")); 
+	    oCheckBoxOrange.click();    
+	 
+	   // Pause so that you can see the results.
+	    Thread.sleep(5000);
+	 
+	    // Close the browser.
+	    oWebDriver.close(); 
+	  }
+}

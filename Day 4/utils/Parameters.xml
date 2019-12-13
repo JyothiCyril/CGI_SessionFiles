@@ -1,0 +1,18 @@
+<suite name = "Test Automation">
+<test name = "Functional Testing">
+
+<parameter name = "Browser" value ="Chrome"></parameter>
+<parameter name = "Url" value ="http://www.newtours.demoaut.com/"></parameter>
+
+<parameter name = "Username" value ="mercury"></parameter>
+<parameter name = "Password" value ="mercury"></parameter>
+
+<classes>
+
+<class name = "com.qa.selenium.NewTours_TestNG" />
+
+
+</classes>
+
+</test>
+</suite>
